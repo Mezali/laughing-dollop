@@ -22,8 +22,8 @@ LiquidCrystal_I2C lcd(0x27, 16, 2); //--> Inicia o LCD
 WiFiServer server(80);              //--> PORTA DO SERVIDOR
 
 // VARIAVEIS
-const char *ssid = "Moises";
-const char *password = "962097mazali";
+const char *ssid = "ETEC de Lins";
+const char *password = "";
 
 int readsuccess;
 byte readcard[4];
@@ -183,8 +183,8 @@ void loop()
       InserirLCD("UID:", UIDresultSend, 3000);
 
       HTTPClient http;
-      http.begin("http://192.168.11.183/esp32/read.php?UID=" + UIDresultSend); //
-      Serial.println("http://192.168.11.183/esp32/read.php?UID=" + UIDresultSend);
+      http.begin("http://192.168.11.172/esp32/read.php?UID=" + UIDresultSend); //
+      Serial.println("http://192.168.11.172/esp32/read.php?UID=" + UIDresultSend);
       int httpCode = http.GET();
 
       // SE RECEBER RESPOSTA DO SERVIDOR HTTP
@@ -202,7 +202,7 @@ void loop()
           }
           else
           {
-            InserirLCD("N. DE PASSAGENS:", payload , 1500);
+            InserirLCD("N. DE PASSAGENS:", payload, 1500);
             digitalWrite(LED_VERDE, HIGH);
             digitalWrite(LED_VERMELHO, LOW);
             apito(1500);
