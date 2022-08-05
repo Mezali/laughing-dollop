@@ -6,7 +6,6 @@ include "conn.php";
 
 $uid = $_GET['UID'];
 
-
 $sql = "SELECT pass FROM user WHERE UID = '$uid'";
 $result = $pdo->query($sql);
 $r = $result->fetch();
