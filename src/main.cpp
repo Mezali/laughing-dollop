@@ -183,8 +183,8 @@ void loop()
       InserirLCD("UID:", UIDresultSend, 3000);
 
       HTTPClient http;
-      http.begin("http://192.168.11.172/esp32/read.php?UID=" + UIDresultSend); //
-      Serial.println("http://192.168.11.172/esp32/read.php?UID=" + UIDresultSend);
+      http.begin("http://192.168.11.44/php/read.php?UID=" + UIDresultSend); //
+      Serial.println("http://192.168.11.42/php/read.php?UID=" + UIDresultSend);
       int httpCode = http.GET();
 
       // SE RECEBER RESPOSTA DO SERVIDOR HTTP
@@ -238,8 +238,8 @@ void loop()
       InserirLCD("UID:", UIDresultSend, 3000);
 
       HTTPClient http;
-      http.begin("http://192.168.11.183/esp32/add.php?UID=" + UIDresultSend); //
-      Serial.println("http://192.168.11.183/esp32/add.php?UID=" + UIDresultSend);
+      http.begin("http://192.168.11.44/php/add.php?UID=" + UIDresultSend); //
+      Serial.println("http://192.168.11.42/php/add.php?UID=" + UIDresultSend);
       int httpCode = http.GET();
 
       // SE RECEBER RESPOSTA DO SERVIDOR HTTP
