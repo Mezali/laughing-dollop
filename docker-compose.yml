@@ -14,8 +14,6 @@ services:
     volumes:
       - ${DOCUMENT_ROOT-./www}:/var/www/html
       - ${PHP_INI-./config/php/php.ini}:/usr/local/etc/php/php.ini
-      - ${VHOSTS_DIR-./config/vhosts}:/etc/apache2/sites-enabled
-      - ${LOG_DIR-./logs/apache2}:/var/log/apache2
     environment:
       PMA_PORT: ${HOST_MACHINE_PMA_PORT}
 
@@ -28,7 +26,6 @@ services:
       - "127.0.0.1:${HOST_MACHINE_MYSQL_PORT}:3306"
     volumes:
       - ${MYSQL_DATA_DIR-./data/mysql}:/var/lib/mysql
-      - ${MYSQL_LOG_DIR-./logs/mysql}:/var/log/mysql
     environment:
       MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
       MYSQL_DATABASE: ${MYSQL_DATABASE}
