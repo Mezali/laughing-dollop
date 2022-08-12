@@ -2,7 +2,8 @@ version: "3"
 
 services:
   php:
-    image: php:8.1-apache-buster
+    build: 
+      context: ./bin/php
     container_name: "${nome_projeto}-ApachePHP"
     restart: "always"
     ports:
