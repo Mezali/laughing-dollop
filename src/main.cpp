@@ -1,6 +1,5 @@
 // INCLUIR BIBLIOTECAS
 #include <Arduino.h>
-#include <SPI.h>
 #include <MFRC522.h>
 #include <WiFi.h>
 #include <HTTPClient.h>
@@ -161,7 +160,7 @@ void setup()
       break;
     }
   }
-}
+}a
 
 // LOOP
 void loop()
