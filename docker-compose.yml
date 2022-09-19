@@ -17,8 +17,10 @@ services:
       PMA_PORT: ${PortaPMA}
 
   banco:
-    image: mariadb
+    build: 
+      context: ./bin/mariaDB
     container_name: "${nome_projeto}-banco"
+    init: true
     restart: "always"
     ports:
       - "127.0.0.1:${PortaMariaDB}:3306"

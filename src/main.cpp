@@ -160,7 +160,7 @@ void setup()
       break;
     }
   }
-}a
+}
 
 // LOOP
 void loop()
