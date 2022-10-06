@@ -6,3 +6,5 @@
 data/mysql
 .vscode
 sql.sql
+include
+platformio.io

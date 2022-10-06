@@ -9,7 +9,7 @@ $comp = $result->fetch();
 
 if ($comp['UID'] != $uid) {
     echo "CAD";
-    $pdo->query("INSERT INTO user (UID) VALUES ('$uid');");
+    $pdo->query("INSERT INTO user (UID, pass) VALUES('$uid', 1);");
 } else {
     echo "JCAD";
 }

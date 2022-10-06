@@ -21,8 +21,8 @@ LiquidCrystal_I2C lcd(0x27, 16, 2); //--> Inicia o LCD
 WiFiServer server(80);              //--> PORTA DO SERVIDOR
 
 // VARIAVEIS
-const char *ssid = "Moises";
-const char *password = "962097mazali";
+const char *ssid = "ETEC de Lins";
+const char *password = "";
 
 int readsuccess;
 byte readcard[4];
@@ -31,7 +31,7 @@ String StrUID;
 String payload;
 bool btVermelho;
 bool btAzul;
-String IP = "192.168.1.100";
+String IP = "192.168.11.143";
 bool modo;
 
 // TRANSFORMA A UID DO CARTÃO EM STRING LEGIVEL
@@ -238,8 +238,8 @@ void loop()
       InserirLCD("UID:", UIDresultSend, 3000);
 
       HTTPClient http;
-      http.begin("http://" + IP + "/php/add.php?UID=" + UIDresultSend); //
-      Serial.println("http://" + IP + "/php/add.php?UID=" + UIDresultSend);
+      http.begin("http://" + IP + "/add.php?UID=" + UIDresultSend); //
+      Serial.println("http://" + IP + "/add.php?UID=" + UIDresultSend);
       int httpCode = http.GET();
 
       // SE RECEBER RESPOSTA DO SERVIDOR HTTP
