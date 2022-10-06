@@ -8,3 +8,5 @@ data/mysql
 sql.sql
 include
 platformio.io
+.gitignore
+platformio.ini
