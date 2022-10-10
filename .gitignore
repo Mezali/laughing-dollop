@@ -10,3 +10,5 @@ include
 platformio.io
 .gitignore
 platformio.ini
+lib/README
+test/README
