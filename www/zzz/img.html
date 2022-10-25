@@ -1,0 +1,25 @@
+<form id="form-noticia" enctype="multipart/form-data">
+    <div class="form-group">
+        <label>Data da notícia</label>
+        <input type="date" name="DATA" id="DATA" class="form-control">
+    </div>
+    <div class="form-group">
+        <label>Título</label>
+        <input type="text" name="TITULO" id="TITULO" class="form-control">
+    </div>
+    <div class="form-group">
+        <label>Resumo</label>
+        <textarea name="RESUMO" id="RESUMO" cols="30" rows="2" maxlength="255" class="form-control"></textarea>
+    </div>
+    <div class="form-group">
+        <label>Corpo da notícia</label>
+        <textarea name="CORPO" id="CORPO" cols="30" rows="8" class="form-control"></textarea>
+    </div>
+    <div class="form-group">
+        <label>Imagem</label>
+        <input type="file" name="ARQUIVO" id="ARQUIVO" class="form-control">
+        <div id="view-image"></div>
+    </div>
+    <input type="hidden" name="operacao" id="operacao" value="insert">
+    <input type="hidden" name="ID" id="ID">
+</form>

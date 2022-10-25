@@ -1,0 +1,14 @@
+.vertical-center {
+    align-content: center !important;
+    flex-wrap: wrap !important;
+    display: flex !important;
+    height: 100vh !important;
+}
+
+.FN{
+    background-color: #000000be;
+}
+
+body{
+    background-color: #278AF0;
+    }
