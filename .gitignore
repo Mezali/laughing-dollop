@@ -4,7 +4,6 @@
 .vscode/launch.json
 .vscode/ipch
 data/mysql
-.vscode
 sql.sql
 include
 platformio.io
