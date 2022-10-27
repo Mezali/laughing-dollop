@@ -2,9 +2,7 @@ version: "3"
 
 services:
   php:
-    build: 
-      context: ./bin/php
-    container_name: "${nome_projeto}-ApachePHP"
+    container_name: "${nome_projeto}-Apache-PHP-CertBot"
     restart: "always"
     ports:
       - "${PortaHTTP}:80"
