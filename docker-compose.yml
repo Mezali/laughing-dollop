@@ -3,6 +3,8 @@ version: "3"
 services:
   php:
     container_name: "${nome_projeto}-Apache-PHP-CertBot"
+    build:
+      context: ./bin/php
     restart: "always"
     ports:
       - "${PortaHTTP}:80"
@@ -15,7 +17,7 @@ services:
       PMA_PORT: ${PortaPMA}
 
   banco:
-    build: 
+    build:
       context: ./bin/mariaDB
     container_name: "${nome_projeto}-banco"
     init: true
