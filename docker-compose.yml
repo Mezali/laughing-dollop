@@ -2,7 +2,7 @@ version: "3"
 
 services:
   php:
-    container_name: "${nome_projeto}-Apache-PHP-CertBot"
+    container_name: "${nome_projeto}-PHP-CertBot"
     build:
       context: ./bin/php
     restart: "always"
@@ -10,7 +10,7 @@ services:
       - "${PortaHTTP}:80"
       - "${PortaSSL}:443"
     links:
-      - banco
+     - banco
     volumes:
       - ./www:/var/www/html
     environment:
@@ -24,8 +24,8 @@ services:
     restart: "always"
     ports:
       - "127.0.0.1:${PortaMariaDB}:3306"
-    volumes:
-      - ./data/mysql:/var/lib/mysql
+    #volumes:
+    #  - ./data/mysql:/var/lib/mysql
     environment:
       MYSQL_ROOT_PASSWORD: ${SenhaRootBD}
       MYSQL_DATABASE: ${BD}
@@ -39,7 +39,7 @@ services:
       - banco
     environment:
       PMA_HOST: banco
-      PMA_PORT: 3306
+      PMA_PORT: ${PortaPMA}
       PMA_USER: ${UserBD}
       PMA_PASSWORD: ${UserSenha}
       SenhaRootBD: ${SenhaRootBD}
