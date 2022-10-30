@@ -2,17 +2,19 @@ version: "3"
 
 services:
   php:
-    container_name: "${nome_projeto}-Apache-PHP-CertBot"
+    container_name: "${nome_projeto}-CertBot-PHP"
     build:
       context: ./bin/php
-    restart: "always"
     ports:
       - "${PortaHTTP}:80"
       - "${PortaSSL}:443"
-    links:
-      - banco
+#    links:
+#     - banco
     volumes:
       - ./www:/var/www/html
+      - ./data/letsencrypt-conf/:/etc/letsencrypt/
+      - ./scripts/certbot.sh:/certbot.sh
+    command: ["/bin/sh", "/certbot.sh"]
     environment:
       PMA_PORT: ${PortaPMA}
 
@@ -39,7 +41,7 @@ services:
       - banco
     environment:
       PMA_HOST: banco
-      PMA_PORT: 3306
+      PMA_PORT: ${PortaPMA}
       PMA_USER: ${UserBD}
       PMA_PASSWORD: ${UserSenha}
       SenhaRootBD: ${SenhaRootBD}
