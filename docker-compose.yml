@@ -2,48 +2,52 @@ version: "3"
 
 services:
   php:
-    container_name: "${nome_projeto}-PHP-CertBot"
+    container_name: "${nome_projeto}-CertBot-PHP"
     build:
       context: ./bin/php
     restart: "always"
     ports:
       - "${PortaHTTP}:80"
       - "${PortaSSL}:443"
-    links:
-     - banco
+#    links:
+#     - banco
     volumes:
       - ./www:/var/www/html
+      - ./data:/
+      - ./scripts/certbot.sh:/certbot.sh
+    command: ["/bin/sh", "/certbot.sh"]
     environment:
       PMA_PORT: ${PortaPMA}
 
-  banco:
-    build:
-      context: ./bin/mariaDB
-    container_name: "${nome_projeto}-banco"
-    init: true
-    restart: "always"
-    ports:
-      - "127.0.0.1:${PortaMariaDB}:3306"
-    #volumes:
-    #  - ./data/mysql:/var/lib/mysql
-    environment:
-      MYSQL_ROOT_PASSWORD: ${SenhaRootBD}
-      MYSQL_DATABASE: ${BD}
-      MYSQL_USER: ${UserBD}
-      MYSQL_PASSWORD: ${UserSenha}
-
-  phpmyadmin:
-    image: phpmyadmin/phpmyadmin
-    container_name: "${nome_projeto}-phpmyadmin"
-    links:
-      - banco
-    environment:
-      PMA_HOST: banco
-      PMA_PORT: ${PortaPMA}
-      PMA_USER: ${UserBD}
-      PMA_PASSWORD: ${UserSenha}
-      SenhaRootBD: ${SenhaRootBD}
-      UserBD: ${UserBD}
-      UserSenha: ${UserSenha}
-    ports:
-      - "${PortaPMA}:80"
+#  banco:
+#    build:
+#      context: ./bin/mariaDB
+#    container_name: "${nome_projeto}-banco"
+#    init: true
+#    restart: "always"
+#    ports:
+#      - "127.0.0.1:${PortaMariaDB}:3306"
+#    volumes:
+#      - ./data/mysql:/var/lib/mysql
+#    environment:
+#      MYSQL_ROOT_PASSWORD: ${SenhaRootBD}
+#      MYSQL_DATABASE: ${BD}
+#      MYSQL_USER: ${UserBD}
+#      MYSQL_PASSWORD: ${UserSenha}
+#
+#  phpmyadmin:
+#    image: phpmyadmin/phpmyadmin
+#    container_name: "${nome_projeto}-phpmyadmin"
+#    links:
+#      - banco
+#    environment:
+#      PMA_HOST: banco
+#      PMA_PORT: ${PortaPMA}
+#      PMA_USER: ${UserBD}
+#      PMA_PASSWORD: ${UserSenha}
+#      SenhaRootBD: ${SenhaRootBD}
+#      UserBD: ${UserBD}
+#      UserSenha: ${UserSenha}
+#    ports:
+#      - "${PortaPMA}:80"
+#
