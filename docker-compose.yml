@@ -5,6 +5,8 @@ services:
     container_name: "${nome_projeto}-CertBot-PHP"
     build:
       context: ./bin/php
+    init: true
+    restart: "always"
     ports:
       - "80:80"
       - "443:443"
@@ -33,17 +35,19 @@ services:
       MYSQL_DATABASE: ${BD}
       MYSQL_USER: ${UserBD}
       MYSQL_PASSWORD: ${UserSenha}
+    mem_limit: 150m
+    
 
   phpmyadmin:
     image: phpmyadmin/phpmyadmin
     container_name: "${nome_projeto}-phpmyadmin"
+    init: true
+    restart: "always"
     links:
       - banco
     environment:
       PMA_HOST: banco
       PMA_PORT: 3306
-    #  PMA_USER: ${UserBD}
-    #  PMA_PASSWORD: ${UserSenha}
       SenhaRootBD: ${SenhaRootBD}
       UserBD: ${UserBD}
       UserSenha: ${UserSenha}
