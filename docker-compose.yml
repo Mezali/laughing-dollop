@@ -27,7 +27,7 @@ services:
     init: true
     restart: "always"
     ports:
-      - "127.0.0.1:${PortaMariaDB}:3306"
+      - "127.0.0.1:3306:3306"
     volumes:
       - ./data/mysql:/var/lib/mysql
     environment:
@@ -35,7 +35,7 @@ services:
       MYSQL_DATABASE: ${BD}
       MYSQL_USER: ${UserBD}
       MYSQL_PASSWORD: ${UserSenha}
-    mem_limit: 150m
+    mem_limit: 300m
     
 
   phpmyadmin:

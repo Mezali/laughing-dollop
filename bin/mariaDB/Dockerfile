@@ -1,2 +1,2 @@
 FROM mariadb:latest
-ADD ./banquinho.sql /docker-entrypoint-initdb.d
+ADD ./Docker.sql /docker-entrypoint-initdb.d
