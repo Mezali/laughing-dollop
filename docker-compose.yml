@@ -35,7 +35,6 @@ services:
       MYSQL_DATABASE: ${BD}
       MYSQL_USER: ${UserBD}
       MYSQL_PASSWORD: ${UserSenha}
-    mem_limit: 300m
     
 
   phpmyadmin:
