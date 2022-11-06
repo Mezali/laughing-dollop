@@ -37,7 +37,7 @@ while true; do sleep 1000; done
 
 echo "#######################"
 echo "Criando conteiners..."
-sudo docker-compose build && sudo docker-compose up -d
+sudo docker compose build && sudo docker compose up -d
 
 echo "caso o container CertBot-PHP não inicie, use 'docker exec -ti <nome-do-container> bash' para investigar a fundo..."
 sleep 5
