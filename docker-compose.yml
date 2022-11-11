@@ -2,19 +2,23 @@ version: "3"
 
 services:
   php:
-    build: 
+    container_name: "${nome_projeto}-CertBot-PHP"
+    build:
       context: ./bin/php
-    container_name: "${nome_projeto}-ApachePHP"
+    init: true
     restart: "always"
     ports:
-      - "${PortaHTTP}:80"
-      - "${PortaSSL}:443"
+      - "80:80"
+      - "443:443"
     links:
-      - banco
+     - banco
     volumes:
       - ./www:/var/www/html
+      - ./data/letsencrypt-conf/:/etc/letsencrypt/
+      - ./scripts/certbot.sh:/certbot.sh
+    command: ["/bin/sh", "/certbot.sh"]
     environment:
-      PMA_PORT: ${PortaPMA}
+      PMA_PORT: 8080
 
   banco:
     build: 
@@ -23,7 +27,7 @@ services:
     init: true
     restart: "always"
     ports:
-      - "127.0.0.1:${PortaMariaDB}:3306"
+      - "127.0.0.1:3306:3306"
     volumes:
       - ./data/mysql:/var/lib/mysql
     environment:
@@ -31,19 +35,20 @@ services:
       MYSQL_DATABASE: ${BD}
       MYSQL_USER: ${UserBD}
       MYSQL_PASSWORD: ${UserSenha}
+    
 
   phpmyadmin:
     image: phpmyadmin/phpmyadmin
     container_name: "${nome_projeto}-phpmyadmin"
+    init: true
+    restart: "always"
     links:
       - banco
     environment:
       PMA_HOST: banco
       PMA_PORT: 3306
-      PMA_USER: ${UserBD}
-      PMA_PASSWORD: ${UserSenha}
       SenhaRootBD: ${SenhaRootBD}
       UserBD: ${UserBD}
       UserSenha: ${UserSenha}
     ports:
-      - "${PortaPMA}:80"
+      - "8080:80"

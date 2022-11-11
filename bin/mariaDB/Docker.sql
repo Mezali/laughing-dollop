@@ -1,58 +1,58 @@
--- MySQL Workbench Forward Engineering
+-- phpMyAdmin SQL Dump
+-- version 5.2.0
+-- https://www.phpmyadmin.net/
+--
+-- Host: localhost
+-- Tempo de geração: 09/07/2022 às 04:15
+-- Versão do servidor: 10.4.24-MariaDB
+-- Versão do PHP: 8.1.6
 
-SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0;
-SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0;
-SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_ENGINE_SUBSTITUTION';
-
--- -----------------------------------------------------
--- Schema mydb
--- -----------------------------------------------------
-CREATE SCHEMA IF NOT EXISTS `docker`;
-USE `docker`;
-
--- -----------------------------------------------------
--- Table `mydb`.`docker`
--- -----------------------------------------------------
-
-CREATE TABLE IF NOT EXISTS `user` (
-  `UID` VARCHAR(8) NOT NULL,
-  `name` VARCHAR(200),
-  `RG` VARCHAR(14),
-  `email` VARCHAR(70),
-  `password` VARCHAR(40),
-  `isAdm` BOOLEAN,
-  `card_id` INT NOT NULL AUTO_INCREMENT,
-  PRIMARY KEY (`UID`),
-  FOREIGN KEY (`card_id`)
-  REFERENCES `card` (`id`),
-  UNIQUE INDEX `RG_UNIQUE` (`RG` ASC)
-)
-ENGINE = InnoDB;
-
--- -----------------------------------------------------
--- Table `card`
--- -----------------------------------------------------
-
-CREATE TABLE IF NOT EXISTS `card` (
-	`id` INT NOT NULL AUTO_INCREMENT,
-    `balance` FLOAT,
-	PRIMARY KEY (`id`)
-)
-ENGINE = InnoDB;
-
--- -----------------------------------------------------
--- Table `card`
--- -----------------------------------------------------
-
-CREATE TABLE `type` (
-  `id` INT NOT NULL AUTO_INCREMENT,
-  `name` VARCHAR(45) NOT NULL,
-  PRIMARY KEY (`ID`)
-)
-ENGINE = InnoDB;
+SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+START TRANSACTION;
+SET time_zone = "+00:00";
 
 
-SET SQL_MODE=@OLD_SQL_MODE;
-SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS;
-SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS;
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!40101 SET NAMES utf8mb4 */;
+
+--
+-- Banco de dados: `banquinho`
+--
+
+-- --------------------------------------------------------
+
+--
+-- Estrutura para tabela `user`
+--
+
+CREATE TABLE `user` (
+  `UID` varchar(8) NOT NULL,
+  `pass` int(99) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Despejando dados para a tabela `user`
+--
+
+INSERT INTO `user` (`UID`, `pass`) VALUES
+('7A2AF1D1', 2),
+('9B05341B', 2),
+('F72C6A29', 71);
+
+--
+-- Índices para tabelas despejadas
+--
+
+--
+-- Índices de tabela `user`
+--
+ALTER TABLE `user`
+  ADD PRIMARY KEY (`UID`);
+COMMIT;
+
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 
