@@ -31,7 +31,7 @@ String StrUID;
 String payload;
 bool btVermelho;
 bool btAzul;
-String IP = "192.168.11.143";
+String IP = "20.197.177.115";
 bool modo;
 
 // TRANSFORMA A UID DO CARTÃO EM STRING LEGIVEL
@@ -183,8 +183,8 @@ void loop()
       InserirLCD("UID:", UIDresultSend, 3000);
 
       HTTPClient http;
-      http.begin("http://" + IP + "/read.php?UID=" + UIDresultSend); //
-      Serial.println("http://" + IP + "/read.php?UID=" + UIDresultSend);
+      http.begin("https://" + IP + "/read.php?UID=" + UIDresultSend); //
+      Serial.println("https://" + IP + "/read.php?UID=" + UIDresultSend);
       int httpCode = http.GET();
 
       // SE RECEBER RESPOSTA DO SERVIDOR HTTP
@@ -238,8 +238,8 @@ void loop()
       InserirLCD("UID:", UIDresultSend, 3000);
 
       HTTPClient http;
-      http.begin("http://" + IP + "/add.php?UID=" + UIDresultSend); //
-      Serial.println("http://" + IP + "/add.php?UID=" + UIDresultSend);
+      http.begin("https://" + IP + "/add.php?UID=" + UIDresultSend); //
+      Serial.println("https://" + IP + "/add.php?UID=" + UIDresultSend);
       int httpCode = http.GET();
 
       // SE RECEBER RESPOSTA DO SERVIDOR HTTP
