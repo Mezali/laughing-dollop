@@ -10,7 +10,7 @@ $comp = $result->fetch();
 
 if ($comp['UID'] != $uid) {
     echo "Seu cartão foi cadastrado com sucesso!";
-    $pdo->query("INSERT INTO user (UID, pass) VALUES('$uid', 1);");
+    $pdo->query("INSERT INTO user (UID, pass) VALUES('$uid', 0);");
 } else {
     echo "Seu cartão já está cadastrado";
 }
