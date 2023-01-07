@@ -21,8 +21,8 @@ LiquidCrystal_I2C lcd(0x27, 16, 2); //--> Inicia o LCD
 WiFiServer server(80);              //--> PORTA DO SERVIDOR
 
 // VARIAVEIS
-const char *ssid = "Moises";
-const char *password = "962097mazali";
+const char *ssid = "ETEC de Lins";
+const char *password = "";
 
 int readsuccess;
 byte readcard[4];

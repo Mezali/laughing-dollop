@@ -1,0 +1,12 @@
+body{
+    background: #25425e!important;
+}
+.mm{
+    margin-top: -15%;
+    margin-right: 1%;
+}
+.vertical-center {
+align-content: center !important;
+flex-wrap: wrap !important;
+display: flex !important;
+}

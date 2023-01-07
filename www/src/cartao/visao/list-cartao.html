@@ -1,0 +1,60 @@
+<div class="row mt-5">
+    <div class="col-12 mt-5">
+        <div class="card shadow mt-5">
+            <div class="card-header">
+                <div class="card-title">
+                    <div class="row">
+                        <div class="col-12 col-md-10">
+                            <h4 class="text-dark">
+                                Gerenciar cartões dos usuários
+                            </h4>
+                        </div>
+                        <div class="col-12 col-md-2">
+                        </div>
+                    </div>
+                </div>
+                <div class="card-body">
+                    <div class="table-responsive">
+                        <table class="table table-hover" id="table-cartao">
+                            <thead class="thead bg-dark text-white">
+                                <tr>
+                                    <th scope="col" class="text-center">UID</th>
+                                    <th scope="col" class="text-center">PASSAGENS</th>
+                                    <th scope="col" class="text-center">AÇÕES</th>
+                                </tr>
+                            </thead>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div id="modal-cartao" class="modal fade" tabindex="-1" role="dialog">
+    <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="my-modal-title">Title</h5>
+                <button class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <p>Content</p>
+            </div>
+            <div class="modal-footer">
+                <button id="close" data-dismiss="modal" class="btn btn-danger btn-secondary"><i class='bx bxs-x-circle'></i> Fechar</button>
+                <button class="btn btn-success btn-primary btn-save"><i class='bx bxs-save' ></i> Salvar</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<script src="src/cartao/controle/new-cartao.js"></script>
+<script src="src/cartao/controle/save-cartao.js"></script>
+<script src="src/cartao/controle/list-cartao.js"></script>
+<script src="src/cartao/controle/view-cartao.js"></script>
+<script src="src/cartao/controle/edit-cartao.js"></script>
+<script src="src/cartao/controle/delete-cartao.js"></script>

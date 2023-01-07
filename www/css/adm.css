@@ -1,0 +1,31 @@
+.vertical-center {
+    align-content: center !important;
+    flex-wrap: wrap !important;
+    display: flex !important;
+    height: 100vh !important;
+    }
+    
+    .Fonte{
+        font-family: 'Viaoda Libre', sans-serif;
+    }
+    
+    .vertical-center {
+        align-content: center !important;
+        flex-wrap: wrap !important;
+        display: flex !important;
+        height: 100vh !important;
+    }
+    
+    .tx{
+        color:#a9a9d3fa;
+        font-family: 'poiret-one';
+    }
+    
+    .FN{
+        background-color: #000000be;
+    }
+    
+    .bn{
+        color: #a9a9d3fa;
+        background-color: #04203b;
+    }

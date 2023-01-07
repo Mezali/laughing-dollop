@@ -1,0 +1,73 @@
+<style>
+    .vertical-center {
+    align-content: center !important;
+    flex-wrap: wrap !important;
+    display: flex !important;
+    height: 100vh !important;
+}
+
+</style>
+
+<div class="row mt-5">
+    <div class="col-12 mt-5">
+        <div class="card shadow mt-5">
+            <div class="card-header">
+                <div class="card-title">
+                    <div class="row">
+                        <div class="col-12 col-md-10">
+                            <h4 class="text-dark">
+                                Gerenciar usuarios
+                            </h4>
+                        </div>
+                        <div class="col-12 col-md-2">
+                            <button class="btn btn-dark btn-block btn-new">
+                                <i class="fa-solid fa-circle-plus"></i> Adicionar
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <div class="card-body">
+                    <div class="table-responsive">
+                        <table class="table table-hover" id="table-usuario">
+                            <thead class="thead bg-dark text-white">
+                                <tr>
+                                    <th scope="col" class="text-center">ID</th>
+                                    <th scope="col" class="text-center">NOME</th>
+                                    <th scope="col" class="text-center">CELULAR</th>
+                                    <th scope="col" class="text-center">AÇÕES</th>
+                                </tr>
+                            </thead>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div id="modal-usuario" class="modal fade" tabindex="-1" role="dialog">
+    <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="my-modal-title">Title</h5>
+                <button class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <p>Content</p>
+            </div>
+            <div class="modal-footer">
+                <button id="close" data-dismiss="modal" class="btn btn-danger btn-secondary"><i class='bx bxs-x-circle'></i> Fechar</button>
+                <button class="btn btn-success btn-primary btn-save"><i class='bx bxs-save' ></i> Salvar</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="src/usuario/controle/new-usuario.js"></script>
+<script src="src/usuario/controle/save-usuario.js"></script>
+<script src="src/usuario/controle/list-usuario.js"></script>
+<script src="src/usuario/controle/view-usuario.js"></script>
+<script src="src/usuario/controle/edit-usuario.js"></script>
+<script src="src/usuario/controle/delete-usuario.js"></script>
