@@ -8,3 +8,4 @@ lib/README
 test/README
 scripts/certbot.sh
 .pio
+.vscode
