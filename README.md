@@ -1,6 +1,5 @@
 # SGPO
 
----
 
 **Sistema Gerenciador de Passagens de ônibus**
 
