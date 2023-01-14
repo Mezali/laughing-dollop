@@ -21,8 +21,8 @@ LiquidCrystal_I2C lcd(0x27, 16, 2); //--> Inicia o LCD
 WiFiServer server(80);              //--> PORTA DO SERVIDOR
 
 // VARIAVEIS
-const char *ssid = "ETEC de Lins";
-const char *password = "";
+const char *ssid = ""; // nome da rede WI-FI
+const char *password = "";         // senha da rede WI-FI
 
 int readsuccess;
 byte readcard[4];
@@ -31,7 +31,7 @@ String StrUID;
 String payload;
 bool btVermelho;
 bool btAzul;
-String IP = "20.226.76.59";
+String IP = ""; // Ip do servidor web
 bool modo;
 
 // TRANSFORMA A UID DO CARTÃO EM STRING LEGIVEL
@@ -47,7 +47,7 @@ void ArrayPraSting(byte array[], unsigned int len, char buffer[])
   buffer[len * 2] = '\0';
 }
 
-// LÊ E VERIRICA SE O CARTÃO ESTÁ PRESENTE
+// LÊ E VERIFICA SE O CARTÃO ESTÁ PRESENTE
 int getid()
 {
   if (!mfrc522.PICC_IsNewCardPresent())
