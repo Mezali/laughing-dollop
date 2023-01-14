@@ -1,0 +1,24 @@
+on:
+  push:
+    branches: ["main"]
+  pull_request:
+    branches: ["main"]
+
+permissions:
+  contents: read
+
+jobs:
+  enviar-registro-docker:
+    name: enviar Dockerimage para registro privado
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: mr-smithers-excellent/docker-build-push@v5
+        name: Construir & enviar Docker image
+        with:
+          image: mezali/sgpo
+          tags: v1, latest
+          registry: docker.io
+          username: ${{ secrets.DOCKER_USERNAME }}
+          password: ${{ secrets.DOCKER_PASSWORD }}
+          
